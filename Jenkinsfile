@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git 'https://github.com/komali306/branchesofgol.git'        
+                git branch :'qa', url: 'https://github.com/komali306/branchesofgol.git'        
             }
         }
         stage('build') {

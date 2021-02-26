@@ -1,12 +1,9 @@
 pipeline {
-    agent { label 'ltecom'}
-    triggers {
-        cron('H * * * 1-5')
-    }
+    agent { label 'master'}
     stages {
         stage('scm') {
             steps {
-                git branch :'developer', url: 'https://github.com/komali306/branchesofgol.git'             
+                git branch: 'release', url:'https://github.com/KhajasCICDSamples/qt-gol.git'        
             }
         }
         stage('build') {
@@ -19,6 +16,13 @@ pipeline {
                 junit 'gameoflife-web/target/surefire-reports/*.xml'
                 archiveArtifacts 'gameoflife-web/target/*.war'
             }
+        }
+    }
+    posts {
+        always{
+            mail to: 'pasupuletikomali6043@gmail.com',
+                subject : "status of pipeline ${currentBuild.fullDisplayName}",
+                body: "${env.BUILD_URL}" has result ${currentBuild.result}
         }
     }
 }

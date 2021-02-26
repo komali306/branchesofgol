@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ltecomm'}
+    agent { label 'ltecom'}
     triggers {
         cron('H * * * 1-5')
     }

@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ltecom'}
+    agent { label 'master'}
     stages {
         stage('scm') {
             steps {
@@ -16,6 +16,12 @@ pipeline {
                 junit 'gameoflife-web/target/surefire-reports/*.xml'
                 archiveArtifacts 'gameoflife-web/target/*.war'
             }
+        }
+        post {
+        always {
+            mail to: 'learningthoughts.in@gmail.com', 
+                subject: "Status of pipeline ${currentBuild.fullDisplayName}",
+                body: "${env.BUILD_URL} has result ${currentBuild.result}"
         }
     }
 }

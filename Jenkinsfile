@@ -1,16 +1,15 @@
 pipeline {
-    agent { label 'master'}
+    agent { label 'MASTER'}
     stages {
         stage('scm') {
             steps {
-                git branch : 'release', url: 'https://github.com/komali306/branchesofgol.git'             
+                git branch: 'release', url:'https://github.com/KhajasCICDSamples/qt-gol.git'        
             }
         }
         stage('build') {
             steps {
                 sh script: 'mvn clean package'
             }
-            
         }
         stage('post build') {
             steps {

@@ -18,13 +18,6 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            (mail ('pasupuletikomali6043@gmail.com')),
-                subject : "status of pipeline ${currentBuild.fullDisplayName}",
-                body: "${env.BUILD_URL}" has result ${currentBuild.result}
-        }
-    }
 }
 
 

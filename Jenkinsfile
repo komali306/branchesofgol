@@ -17,7 +17,7 @@ pipeline {
                 archiveArtifacts 'gameoflife-web/target/*.war'
             }
         }
-        Post {
+    post {
         always {
             mail to: 'pasupuletikomali6043@gmail.com', 
                 subject: "Status of pipeline ${currentBuild.fullDisplayName}",

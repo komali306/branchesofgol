@@ -1,9 +1,9 @@
 pipeline {
-    agent { label 'ltecom'}
+    agent { label 'MASTER'}
     stages {
         stage('scm') {
             steps {
-                git branch: 'release', url:'https://github.com/komali306/branchesofgol.git'        
+                git branch: 'developer', url:'https://github.com/komali306/branchesofgol.git'        
             }
         }
         stage('build') {

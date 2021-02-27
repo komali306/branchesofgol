@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'MASTER'}
+    agent { label 'ltecom'}
     stages {
         stage('scm') {
             steps {
@@ -8,7 +8,9 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh script: 'mvn clean package'
+              withSonarQubeEnv('SONAR_7.1'){
+                sh script: 'mvn clean package sonar:sonar'
+                }
             }
         }
         stage('post build') {

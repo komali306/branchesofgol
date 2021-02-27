@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git branch: 'developer', url:'https://github.com/komali306/branchesofgol.git'        
+                git branch: 'developer', url:'https://github.com/KhajasCICDSamples/qt-gol.git'        
             }
         }
         stage('build') {

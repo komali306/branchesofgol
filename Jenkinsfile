@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master'}
+    agent { label 'ltecom'}
     stages {
         stage('scm') {
             steps {
@@ -8,7 +8,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh script: 'mvn package'
+                sh script: 'mvn clean package'
             }
         }
         stage('post build') {

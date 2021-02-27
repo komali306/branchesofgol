@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git branch: 'developer', url:'https://github.com/KhajasCICDSamples/qt-gol.git'        
+                git branch: 'developer', url:'https://github.com/komali306/branchesofgol.git'        
             }
         }
         stage('build') {
             steps {
-                sh script: 'mvn CLEAN package'
+                sh script: 'mvn clean package'
             }
         }
         stage('post build') {

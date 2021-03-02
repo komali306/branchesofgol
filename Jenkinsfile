@@ -1,5 +1,4 @@
 
-
 pipeline {
     agent any
     stages {
@@ -12,21 +11,21 @@ pipeline {
         stage ('Artifactory configuration') {
             steps {
                 rtServer (
-                    id: "ARTIFACTORY_OSS",
-                    url: http://40.117.229.41:8082/artifactory,
-                    credentialsId: ARTIFACTORY
+                    id: "ARTIFACTORY",
+                    url: http://40.91.111.187:8082/artifactory,
+                    credentialsId: ARTIFACTORY01
                 )
 
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
-                    serverId: "ARTIFACTORY_OSS",
+                    serverId: "ARTIFACTORY",
                     releaseRepo: "libs-release-local",
                     snapshotRepo: "libs-snapshot-local"
                 )
 
                 rtMavenResolver (
                     id: "MAVEN_RESOLVER",
-                    serverId: "ARTIFACTORY_OSS",
+                    serverId: "ARTIFACTORY",
                     releaseRepo: "libs-release",
                     snapshotRepo: "libs-snapshot"
                 )
@@ -48,7 +47,7 @@ pipeline {
         stage ('Publish build info') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: "ARTIFACTORY_OSS"
+                    serverId: "ARTIFACTORY"
                 )
             }
         }

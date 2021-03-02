@@ -18,14 +18,14 @@ pipeline {
 
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
-                    serverId: "ARTIFACTORY",
+                    serverId: "ARTIFACTORY01",
                     releaseRepo: "libs-release-local",
                     snapshotRepo: "libs-snapshot-local"
                 )
 
                 rtMavenResolver (
                     id: "MAVEN_RESOLVER",
-                    serverId: "ARTIFACTORY",
+                    serverId: "ARTIFACTORY01",
                     releaseRepo: "libs-release",
                     snapshotRepo: "libs-snapshot"
                 )

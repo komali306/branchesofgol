@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { label 'MASTER'}
+    agent { label 'ltecom'}
     stages {
         stage ('Clone') {
             steps {

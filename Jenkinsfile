@@ -2,7 +2,7 @@
 pipeline {
     agent { label 'ltecom'}
     stages {
-        stage ('Clone') {
+        stage ('scm') {
             steps {
                 git branch: 'developer', url: "https://github.com/komali306/branchesofgol.git"
             }

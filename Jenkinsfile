@@ -2,9 +2,9 @@
 pipeline {
     agent { label 'ltecom'}
     stages {
-        stage ('clone') {
+        stage ('scm') {
             steps {
-                git branch: 'master', url: "https://github.com/wakaleo/game-of-life.git"
+                git branch: 'developer', url: "https://github.com/komali306/branchesofgol.git"
             }
         }
 

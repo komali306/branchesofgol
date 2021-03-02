@@ -36,7 +36,7 @@ pipeline {
             steps {
                 rtMavenRun (
                     tool: 'MVN', // Tool name from Jenkins configuration
-                    pom: 'home/ubuntu/jenkins/workspace/gol-qt_developer@tmp/pom.xml',
+                    pom: '/jenkins/workspace/gol-qt_developer@tmp/pom.xml',
                     goals: 'mvn clean install',
                     deployerId: "MAVEN_DEPLOYER",
                     resolverId: "MAVEN_RESOLVER"

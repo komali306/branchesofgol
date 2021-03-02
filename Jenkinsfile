@@ -36,7 +36,7 @@ pipeline {
             steps {
                 rtMavenRun (
                     tool: 'mvn', // Tool name from Jenkins configuration
-                    pom: 'gameoflife/pom.xml',
+                    pom: 'game-of-life/pom.xml',
                     goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER",
                     resolverId: "MAVEN_RESOLVER"
